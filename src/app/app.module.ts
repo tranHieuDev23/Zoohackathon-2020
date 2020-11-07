@@ -18,6 +18,7 @@ import { ReportPageModule } from './pages/report/report.module';
 import { InterceptorService } from './services/interceptor.service';
 import { IssuePageModule } from './pages/issue/issue.module';
 import { AllIssuePageModule } from './pages/all-issue/all-issue.module';
+import { NotificationsPageModule } from './pages/notifications/notifications.module';
 
 registerLocaleData(en);
 
@@ -37,7 +38,8 @@ registerLocaleData(en);
     MapPageModule,
     ReportPageModule,
     IssuePageModule,
-    AllIssuePageModule
+    AllIssuePageModule,
+    NotificationsPageModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

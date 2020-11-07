@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AllIssuePageComponent } from './pages/all-issue/all-issue.component';
 import { IssuePageComponent } from './pages/issue/issue.component';
 import { MapPageComponent } from './pages/map/map.component';
+import { NotificationsPageComponent } from './pages/notifications/notifications.component';
 import { ReportPageComponent } from './pages/report/report.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'map', component: MapPageComponent },
   { path: 'report', component: ReportPageComponent },
   { path: 'all-issue', component: AllIssuePageComponent },
+  { path: 'notifications', component: NotificationsPageComponent },
   { path: 'issue/:id', component: IssuePageComponent },
 ];
 

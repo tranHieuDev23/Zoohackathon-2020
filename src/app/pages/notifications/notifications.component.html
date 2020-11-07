@@ -1,0 +1,22 @@
+<div class="container">
+    <h1 nz-typography>
+        Notifications
+    </h1>
+    <nz-list nzBordered="true" nzItemLayout="horizontal">
+        <nz-list-item *ngFor="let item of notifications">
+            <nz-list-item-meta>
+                <nz-list-item-meta-avatar>
+                    <i nz-icon [nzType]="item.icon" nzTheme="outline"></i>
+                </nz-list-item-meta-avatar>
+                <nz-list-item-meta-title>
+                    {{ item.title }} - Today
+                </nz-list-item-meta-title>
+                <nz-list-item-meta-description>
+                    {{ item.description }}
+                </nz-list-item-meta-description>
+            </nz-list-item-meta>
+        </nz-list-item>
+        <nz-list-empty *ngIf="notifications.length === 0">
+        </nz-list-empty>
+    </nz-list>
+</div>
