@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+.container {
+  padding-top: 32px;
+  padding-left: 32px;
+  padding-right: 32px;
+  padding-bottom: 64px;
+  background: #fff;
+  min-height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+
+  @media (min-width: 576px) {
+    width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    width: 720px;
+  }
+
+  @media (min-width: 992px) {
+    width: 960px;
+  }
+
+  @media (min-width: 1200px) {
+    width: 1140px;
+  }
+}

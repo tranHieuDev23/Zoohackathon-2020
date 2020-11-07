@@ -1,0 +1,56 @@
+<div class="container">
+    <h1 nz-typography>
+        Report
+    </h1>
+    <form nz-form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+        <nz-form-item nz-row>
+            <nz-form-label nz-col [nzSpan]="7" nzRequired>Category</nz-form-label>
+            <nz-form-control nz-col [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
+                <nz-select formControlName="category">
+                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-row>
+            <nz-form-label nz-col [nzSpan]="7" nzRequired>Location</nz-form-label>
+            <nz-form-control nz-col [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
+                <nz-select formControlName="location">
+                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                </nz-select>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-row>
+            <nz-form-label nz-col [nzSpan]="7" nzRequired>Description</nz-form-label>
+            <nz-form-control nz-col [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
+                <textarea rows="5" nz-input formControlName="description"></textarea>
+            </nz-form-control>
+        </nz-form-item>
+
+        <nz-form-item nz-row>
+            <nz-form-label nz-col [nzSpan]="7" nzRequired>Images</nz-form-label>
+            <nz-form-control nz-col [nzSpan]="12" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
+                <nz-upload nzListType="picture-card" [(nzFileList)]="uploadedFiles" [nzMultiple]="true" [nzSize]="5120"
+                    nzAccept="image/*"
+                    [nzShowUploadList]="{ showPreviewIcon: false, showRemoveIcon: true, showDownloadIcon: false }"
+                    [nzShowButton]="uploadedFiles.length < 8" nzAction="/upload">
+                    <div>
+                        <i nz-icon nzType="plus"></i>
+                        <div style="margin-top: 8px">Upload</div>
+                    </div>
+                </nz-upload>
+            </nz-form-control>
+        </nz-form-item>
+
+        <ng-template #errorTpl let-control>
+            <ng-container *ngIf="control.hasError('required')">
+                This field is required
+            </ng-container>
+        </ng-template>
+
+        <button id="submit-button" type="submit" nz-button nzType="primary">
+            Submit
+        </button>
+    </form>
+</div>
