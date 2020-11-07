@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
 import { MapPickerValue } from 'src/app/components/map-picker/map-picker.component';
+import { ReportService } from 'src/app/services/report.service';
+import { Report } from 'src/models/report';
 import { getAllReportType, getReportTypeName } from 'src/models/report-type';
 
 @Component({
@@ -21,7 +24,9 @@ export class ReportPageComponent implements OnInit {
   public uploadedFiles: NzUploadFile[] = [];
 
   constructor(
-    formBuilder: FormBuilder
+    formBuilder: FormBuilder,
+    private reportService: ReportService,
+    private router: Router
   ) {
     this.formGroup = formBuilder.group({
       category: [null, [Validators.required]],
@@ -52,12 +57,16 @@ export class ReportPageComponent implements OnInit {
     });
   }
 
-  onSubmit(): void {
+  async onSubmit() {
     Object.keys(this.formGroup.controls).forEach(field => {
       const control = this.formGroup.get(field);
       control.markAsTouched();
       control.updateValueAndValidity();
     });
+    if (this.formGroup.valid) {
+      await this.reportService.uploadReport(this.formGroup.getRawValue() as Report);
+      this.router.navigateByUrl('/');
+    }
   }
 
   private getLocationString(value: MapPickerValue): string {
