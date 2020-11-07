@@ -7,7 +7,8 @@
             <nz-form-label nz-col [nzSpan]="4" nzRequired>Category</nz-form-label>
             <nz-form-control nz-col [nzSpan]="16" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
                 <nz-select formControlName="category">
-                    <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
+                    <nz-option *ngFor="let item of typeOptions" [nzValue]="item.value" [nzLabel]="item.label">
+                    </nz-option>
                 </nz-select>
             </nz-form-control>
         </nz-form-item>
@@ -48,7 +49,7 @@
             </ng-container>
         </ng-template>
 
-        <button id="submit-button" type="submit" nz-button nzType="primary">
+        <button id="submit-button" type="submit" nz-button nzType="primary" (click)="onSubmit()">
             Submit
         </button>
     </form>

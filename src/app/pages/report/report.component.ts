@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
 import { MapPickerValue } from 'src/app/components/map-picker/map-picker.component';
+import { getAllReportType, getReportTypeName } from 'src/models/report-type';
 
 @Component({
   selector: 'app-report',
@@ -10,6 +11,12 @@ import { MapPickerValue } from 'src/app/components/map-picker/map-picker.compone
 })
 export class ReportPageComponent implements OnInit {
   public formGroup: FormGroup;
+  public typeOptions: any[] = getAllReportType().map(item => {
+    return {
+      label: getReportTypeName(item),
+      value: item
+    };
+  });
   public locationString: string = null;
   public uploadedFiles: NzUploadFile[] = [];
 
@@ -46,6 +53,11 @@ export class ReportPageComponent implements OnInit {
   }
 
   onSubmit(): void {
+    Object.keys(this.formGroup.controls).forEach(field => {
+      const control = this.formGroup.get(field);
+      control.markAsTouched();
+      control.updateValueAndValidity();
+    });
   }
 
   private getLocationString(value: MapPickerValue): string {
