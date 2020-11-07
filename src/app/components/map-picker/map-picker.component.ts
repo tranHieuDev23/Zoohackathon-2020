@@ -30,7 +30,7 @@ export class MapPickerComponent implements OnInit, ControlValueAccessor {
   @ViewChild(MapComponent) map: MapComponent;
 
   public style: string = environment.mapbox.style;
-  public zoom: number = environment.mapbox.initialZoomLevel;
+  public zoom: number = 13;
   public center: LngLatLike = [0, 0];
   public locationString: string = null;
 
