@@ -9,6 +9,8 @@ import { NzListModule } from 'ng-zorro-antd/list';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzAvatarModule } from 'ng-zorro-antd/avatar';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { environment } from 'src/environments/environment';
 
 
 @NgModule({
@@ -22,7 +24,10 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     NzTagModule,
     NzListModule,
     NzIconModule,
-    NzGridModule
+    NzGridModule,
+    NgxMapboxGLModule.withConfig({
+      accessToken: environment.mapbox.accessToken
+    })
   ]
 })
 export class IssuePageModule { }

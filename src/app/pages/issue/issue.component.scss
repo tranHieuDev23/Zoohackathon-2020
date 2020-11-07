@@ -1,10 +1,14 @@
+mgl-map {
+  height: 300px;
+  margin-bottom: 8px;
+}
+
 .issue-image {
+  height: 300px;
+  max-width: 100%;
   display: block;
-  width: 80%;
-  max-width: 500px;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 24px;
 }
 
 .timeline-image {

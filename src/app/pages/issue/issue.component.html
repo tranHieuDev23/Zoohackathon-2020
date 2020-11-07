@@ -4,7 +4,17 @@
         {{ getIssueStatusString(issue.status) }}
     </nz-tag>
     <p nz-typography nzType="secondary" style="margin-top: 8px; margin-bottom: 16px;">{{ issue.description }}</p>
-    <img class="issue-image" [src]="issue.coverImage" />
+
+    <div nz-row [nzGutter]="8" style="margin-bottom: 24px;">
+        <div nz-col [nzSpan]="24" [nzMd]="12">
+            <mgl-map [style]="style" [zoom]="zoom" [center]="issue.location.coord" [interactive]="false">
+                <mgl-marker [lngLat]="issue.location.coord"></mgl-marker>
+            </mgl-map>
+        </div>
+        <div nz-col [nzSpan]="24" [nzMd]="12">
+            <img class="issue-image" [src]="issue.coverImage" />
+        </div>
+    </div>
 
     <h2 nz-typography>Timeline</h2>
     <nz-timeline nzMode="alternate">

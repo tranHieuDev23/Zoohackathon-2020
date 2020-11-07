@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { IssueService } from 'src/app/services/issue.service';
 import { ReportService } from 'src/app/services/report.service';
+import { environment } from 'src/environments/environment';
 import { Issue } from 'src/models/issue';
 import { getIssueStatusColor, getIssueStatusString, IssueStatus } from 'src/models/issue-status';
 import { Report } from 'src/models/report';
@@ -14,6 +15,8 @@ import { Report } from 'src/models/report';
 export class IssuePageComponent implements OnInit {
   public issue: Issue = null;
   public reports: Report[] = null;
+  public readonly style: string = environment.mapbox.style;
+  public readonly zoom: number = 13;
 
   constructor(
     private route: ActivatedRoute,
