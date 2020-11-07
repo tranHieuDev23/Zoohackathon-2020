@@ -1,0 +1,19 @@
+<div nz-row [nzGutter]="{ xs: 8, sm: 16, md: 24, lg: 32, xl: 32, xxl: 32 }">
+    <div *ngFor="let item of issues; index as i" nz-col [nzSpan]="24" [nzMd]="12" [nzLg]="8">
+        <nz-card [nzCover]="coverTemplate" nzHoverable="true" [nzActions]="[actionFollow]" (click)="onClick(i)">
+            <p>
+                <nz-tag [nzColor]="getIssueStatusColor(item.status)">
+                    {{ getIssueStatusString(item.status) }}
+                </nz-tag>
+            </p>
+            <nz-card-meta [nzTitle]="item.title" [nzDescription]="item.description">
+            </nz-card-meta>
+            <ng-template #coverTemplate>
+                <img [src]="item.coverImage" />
+            </ng-template>
+            <ng-template #actionFollow>
+                <i nz-icon nzType="pushpin" nzTheme="outline"></i>
+            </ng-template>
+        </nz-card>
+    </div>
+</div>

@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IssuePageComponent } from './issue.component';
-import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzTimelineModule } from 'ng-zorro-antd/timeline';
 import { NzCommentModule } from 'ng-zorro-antd/comment';
 import { NzTypographyModule } from 'ng-zorro-antd/typography';
@@ -17,7 +16,6 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
   imports: [
     CommonModule,
     NzAvatarModule,
-    NzCardModule,
     NzTimelineModule,
     NzCommentModule,
     NzTypographyModule,

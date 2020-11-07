@@ -1,0 +1,13 @@
+<div class="container">
+    <nz-tabset nzType="card" (nzSelectedIndexChange)="onChangeTab($event)">
+        <nz-tab nzTitle="Hottest issues">
+            <app-issue-grid [issues]="issues"></app-issue-grid>
+        </nz-tab>
+        <nz-tab nzTitle="Recent issues">
+            <app-issue-grid [issues]="issues"></app-issue-grid>
+        </nz-tab>
+        <nz-tab nzTitle="Following">
+            <app-issue-grid [issues]="issues"></app-issue-grid>
+        </nz-tab>
+    </nz-tabset>
+</div>

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AllIssuePageComponent } from './pages/all-issue/all-issue.component';
 import { IssuePageComponent } from './pages/issue/issue.component';
 import { MapPageComponent } from './pages/map/map.component';
 import { ReportPageComponent } from './pages/report/report.component';
@@ -8,6 +9,7 @@ const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'map' },
   { path: 'map', component: MapPageComponent },
   { path: 'report', component: ReportPageComponent },
+  { path: 'all-issue', component: AllIssuePageComponent },
   { path: 'issue/:id', component: IssuePageComponent },
 ];
 
