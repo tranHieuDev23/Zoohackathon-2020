@@ -30,11 +30,11 @@ export class NgGeocodeService {
     });
   }
 
-  public async searchLocation(query: string, proximity: { lat: number, lng: number }): Promise<MapiResponse> {
+  public async searchLocation(query: string, proximity: LngLatLike): Promise<MapiResponse> {
     return this.geocodeClient.forwardGeocode({
       mode: "mapbox.places",
       query,
-      proximity: [proximity.lng, proximity.lat]
+      proximity: proximity['lng'] ? [proximity['lng'], proximity['lat']] : [proximity[0], proximity[1]]
     }).send();
   }
 

@@ -1,4 +1,9 @@
-<div id="map"></div>
+<mgl-map [style]="style" [zoom]="zoom" [center]="center" [movingOptions]="{animate: false}" [attributionControl]="false"
+    logoPosition="top-left">
+    <mgl-marker *ngFor="let item of issues" [lngLat]="item.location.coord">
+        <app-issue-marker [issue]="item"></app-issue-marker>
+    </mgl-marker>
+</mgl-map>
 <nz-input-group id="search-box" nzSize="large" nzSearch [nzAddOnAfter]="suffixIconButton">
     <input type="text" nz-input placeholder="Search location" (keydown.enter)="search()" [(ngModel)]="searchQuery" />
 </nz-input-group>

@@ -26,6 +26,7 @@
     "geolocator": "^2.1.5",
     "mapbox-gl": "^1.12.0",
     "ng-zorro-antd": "^10.1.0",
+    "ngx-mapbox-gl": "^4.8.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

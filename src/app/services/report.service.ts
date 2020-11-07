@@ -10,14 +10,14 @@ export class ReportService {
   constructor() { }
 
   public async uploadReport(newReport: Report): Promise<void> {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>((resolve) => {
       this.reports.push(newReport);
       resolve();
     });
   }
 
   public async getAllReport(): Promise<Report[]> {
-    return new Promise<Report[]>((resolve, reject) => {
+    return new Promise<Report[]>((resolve) => {
       resolve(this.reports);
     });
   }

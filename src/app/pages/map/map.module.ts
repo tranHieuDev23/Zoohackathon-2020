@@ -5,7 +5,9 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzButtonModule } from 'ng-zorro-antd/button';
 import { FormsModule } from '@angular/forms';
-
+import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
+import { environment } from 'src/environments/environment';
+import { IssueMarkerModule } from 'src/app/components/issue-marker/issue-marker.module';
 
 @NgModule({
   declarations: [MapPageComponent],
@@ -14,7 +16,11 @@ import { FormsModule } from '@angular/forms';
     NzInputModule,
     NzIconModule,
     NzButtonModule,
-    FormsModule
+    FormsModule,
+    IssueMarkerModule,
+    NgxMapboxGLModule.withConfig({
+      accessToken: environment.mapbox.accessToken
+    })
   ]
 })
 export class MapPageModule { }
