@@ -16,6 +16,7 @@ import { NzIconModule } from 'ng-zorro-antd/icon';
 import { MapPageModule } from './pages/map/map.module';
 import { ReportPageModule } from './pages/report/report.module';
 import { InterceptorService } from './services/interceptor.service';
+import { IssuePageModule } from './pages/issue/issue.module';
 
 registerLocaleData(en);
 
@@ -33,7 +34,8 @@ registerLocaleData(en);
     NzGridModule,
     NzIconModule,
     MapPageModule,
-    ReportPageModule
+    ReportPageModule,
+    IssuePageModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

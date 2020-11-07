@@ -6,7 +6,7 @@ export class TimelineEvent {
         public readonly title: string,
         public readonly description: string,
         public readonly newStatus: IssueStatus,
-        public readonly image: File,
+        public readonly image: string,
         public readonly date: Date
     ) { }
 }
@@ -19,7 +19,7 @@ export class Issue {
         public readonly description: string,
         public readonly location: MapPickerValue,
         public readonly status: IssueStatus,
-        public readonly coverImage: File,
+        public readonly coverImage: string,
         public readonly timeline: TimelineEvent[]
     ) { }
 }

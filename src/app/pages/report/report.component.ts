@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
+import { NzUploadFile } from 'ng-zorro-antd/upload';
 import { MapPickerValue } from 'src/app/components/map-picker/map-picker.component';
 import { ReportService } from 'src/app/services/report.service';
 import { Report } from 'src/models/report';
@@ -46,13 +46,10 @@ export class ReportPageComponent implements OnInit {
     this.locationString = this.getLocationString(values.location);
   }
 
-  onFilesChange(filesChange: NzUploadChangeParam): void {
-    if (filesChange.file.status !== 'done') {
-      return;
-    }
+  onFilesChange(): void {
     this.formGroup.patchValue({
       images: this.uploadedFiles.map((item) => {
-        return item.originFileObj
+        return item.thumbUrl;
       })
     });
   }

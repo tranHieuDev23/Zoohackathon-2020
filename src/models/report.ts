@@ -6,6 +6,6 @@ export class Report {
         public readonly type: ReportType,
         public readonly location: MapPickerValue,
         public readonly description: string,
-        public readonly images: File[]
+        public readonly images: string[]
     ) { }
 }

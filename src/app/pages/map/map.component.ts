@@ -7,7 +7,6 @@ import { IssueService } from 'src/app/services/issue.service';
 import { environment } from 'src/environments/environment';
 import { Issue } from 'src/models/issue';
 import { MapComponent } from 'ngx-mapbox-gl';
-import { getIssueStatusColor } from 'src/models/issue-status';
 
 @Component({
   selector: 'app-map',
@@ -25,13 +24,11 @@ export class MapPageComponent implements OnInit {
   constructor(
     private geocode: NgGeocodeService,
     private issueService: IssueService,
-    private router: Router
   ) { }
 
   async ngOnInit() {
     const currentLocation = await this.geocode.getCurrentLocation();
     this.issues = await this.issueService.getAllIssue();
-    console.log(this.issues);
     this.moveTo(currentLocation);
   }
 
@@ -40,7 +37,6 @@ export class MapPageComponent implements OnInit {
     if (trimmedQuery.length === 0) {
       return;
     }
-    const mapCenter = this.map.center;
     const result: MapiResponse = await this.geocode.searchLocation(trimmedQuery, this.map.center);
     const locations: any[] = result.body.features;
     if (locations.length === 0) {

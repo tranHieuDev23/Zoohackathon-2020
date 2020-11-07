@@ -3,7 +3,7 @@
         Report
     </h1>
     <form nz-form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-        <nz-form-item nz-row nzJustify="center">
+        <nz-form-item nz-row nzJustify="space-around">
             <nz-form-label nz-col [nzSpan]="4" nzRequired>Category</nz-form-label>
             <nz-form-control nz-col [nzSpan]="16" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
                 <nz-select formControlName="category">
@@ -13,7 +13,7 @@
             </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item nz-row nzJustify="center">
+        <nz-form-item nz-row nzJustify="space-around">
             <nz-form-label nz-col [nzSpan]="4" nzRequired>Location</nz-form-label>
             <nz-form-control nz-col [nzSpan]="16" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
                 <app-map-picker formControlName="location"></app-map-picker>
@@ -21,18 +21,18 @@
             </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item nz-row nzJustify="center">
+        <nz-form-item nz-row nzJustify="space-around">
             <nz-form-label nz-col [nzSpan]="4" nzRequired>Description</nz-form-label>
             <nz-form-control nz-col [nzSpan]="16" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
                 <textarea rows="5" nz-input formControlName="description"></textarea>
             </nz-form-control>
         </nz-form-item>
 
-        <nz-form-item nz-row nzJustify="center">
+        <nz-form-item nz-row nzJustify="space-around">
             <nz-form-label nz-col [nzSpan]="4" nzRequired>Images</nz-form-label>
             <nz-form-control nz-col [nzSpan]="16" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
                 <nz-upload nzListType="picture-card" [(nzFileList)]="uploadedFiles" [nzMultiple]="true" [nzSize]="5120"
-                    nzAccept="image/*" (nzChange)="onFilesChange($event)"
+                    nzAccept="image/*" (nzChange)="onFilesChange()"
                     [nzShowUploadList]="{ showPreviewIcon: false, showRemoveIcon: true, showDownloadIcon: false }"
                     [nzShowButton]="uploadedFiles.length < 8" nzAction="/upload">
                     <div>

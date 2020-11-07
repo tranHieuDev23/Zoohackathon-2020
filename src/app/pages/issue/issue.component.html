@@ -1,0 +1,35 @@
+<div *ngIf="issue" class="container">
+    <h1 nz-typography>{{ issue.title }}</h1>
+    <nz-tag [nzColor]="getIssueStatusColor(issue.status)">
+        {{ getIssueStatusString(issue.status) }}
+    </nz-tag>
+    <p nz-typography nzType="secondary" style="margin-top: 8px; margin-bottom: 16px;">{{ issue.description }}</p>
+    <img class="issue-image" [src]="issue.coverImage" />
+
+    <h2 nz-typography>Timeline</h2>
+    <nz-timeline nzMode="alternate">
+        <nz-timeline-item *ngFor="let item of issue.timeline" [nzColor]="getIssueStatusColor(item.newStatus)">
+            <h4 nz-typography>{{ item.title }}</h4>
+            <span nz-typography nzType="secondary">{{ formatDate(item.date) }}</span>
+            <p nz-typography>{{ item.title }}</p>
+            <img class="timeline-image" [src]="item.image" />
+        </nz-timeline-item>
+    </nz-timeline>
+
+    <h2 nz-typography>Reports by locals</h2>
+    <nz-list [nzDataSource]="reports" [nzRenderItem]="item" [nzItemLayout]="'horizontal'">
+        <ng-template #item let-item>
+            <nz-comment nzAuthor="Anonymous" nzDatetime="3 weeks ago">
+                <nz-avatar nz-comment-avatar nzIcon="user"
+                    nzSrc="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png"></nz-avatar>
+                <nz-comment-content>
+                    <p class="report-description">{{ item.description }}</p>
+                    <div nz-row [nzGutter]="{ xs: 4, sm: 8, md: 12, lg: 16 }">
+                        <img *ngFor="let image of item.images" nz-col [nzSpan]="12" [nzMd]="8" [nzLg]="6" [src]="image"
+                            class="report-image" />
+                    </div>
+                </nz-comment-content>
+            </nz-comment>
+        </ng-template>
+    </nz-list>
+</div>
