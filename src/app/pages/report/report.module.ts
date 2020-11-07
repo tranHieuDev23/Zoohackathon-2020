@@ -10,6 +10,7 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
 import { NzStepsModule } from 'ng-zorro-antd/steps';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzUploadModule } from 'ng-zorro-antd/upload';
+import { MapPickerModule } from 'src/app/components/map-picker/map-picker.module';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { NzUploadModule } from 'ng-zorro-antd/upload';
     NzSelectModule,
     NzGridModule,
     NzUploadModule,
-    NzStepsModule
+    NzStepsModule,
+    MapPickerModule
   ],
   providers: [
 

@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   mapbox: {
-    accessToken: 'pk.eyJ1IjoiaGlldXRtIiwiYSI6ImNraDc1YmN0eTA4ZWsyenBmdzJ4bTZmcTEifQ.4pttowJSj5txheugJLkfyg'
+    accessToken: 'pk.eyJ1IjoiaGlldXRtIiwiYSI6ImNraDc1YmN0eTA4ZWsyenBmdzJ4bTZmcTEifQ.4pttowJSj5txheugJLkfyg',
+    style: 'mapbox://styles/mapbox/streets-v11',
+    initialZoomLevel: 13
   }
 };
 

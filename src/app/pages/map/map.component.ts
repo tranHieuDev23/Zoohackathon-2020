@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MapiResponse } from '@mapbox/mapbox-sdk/lib/classes/mapi-response';
-import { LngLatBoundsLike, LngLatLike, Map, NavigationControl } from 'mapbox-gl';
+import { LngLatBoundsLike, LngLatLike, Map } from 'mapbox-gl';
 import { NgGeocodeService } from 'src/app/services/geocode.service';
 import { environment } from 'src/environments/environment';
-
-const INITIAL_ZOOM_LEVEL: number = 13;
 
 @Component({
   selector: 'app-map',
@@ -15,7 +13,6 @@ export class MapPageComponent implements OnInit {
   public searchQuery: string = '';
 
   private map: Map;
-  private style: string = 'mapbox://styles/mapbox/streets-v11';
 
   constructor(
     private geocode: NgGeocodeService
@@ -23,11 +20,10 @@ export class MapPageComponent implements OnInit {
 
   async ngOnInit() {
     const currentLocation = await this.geocode.getCurrentLocation();
-    console.log(currentLocation);
     this.map = new Map({
       container: 'map',
-      style: this.style,
-      zoom: INITIAL_ZOOM_LEVEL,
+      style: environment.mapbox.style,
+      zoom: environment.mapbox.initialZoomLevel,
       accessToken: environment.mapbox.accessToken
     });
     this.moveTo(currentLocation);
@@ -56,7 +52,7 @@ export class MapPageComponent implements OnInit {
   async toCurrentLocation() {
     const currentLocation = await this.geocode.getCurrentLocation();
     this.moveTo(currentLocation);
-    this.map.setZoom(INITIAL_ZOOM_LEVEL);
+    this.map.setZoom(environment.mapbox.initialZoomLevel);
   }
 
   private moveToFit(bbox: LngLatBoundsLike) {
