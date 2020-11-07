@@ -1,4 +1,23 @@
-<!-- NG-ZORRO -->
-<a href="https://github.com/NG-ZORRO/ng-zorro-antd" target="_blank" style="display: flex;align-items: center;justify-content: center;height: 100%;width: 100%;">
-  <img height="300" src="https://img.alicdn.com/tfs/TB1X.qJJgHqK1RjSZFgXXa7JXXa-89-131.svg">
-</a>
+<router-outlet></router-outlet>
+<div nz-menu id="navbar" nz-row nzTheme="dark" nzGutter="0" nzJustify="space-around">
+  <div nz-menu-item class="navbar-item" nz-col [nzSpan]="4">
+    <i nz-icon nzType="global" nzTheme="outline"></i>
+    <span class="navbar-item-title">Map</span>
+  </div>
+  <div nz-menu-item class="navbar-item" nz-col [nzSpan]="4">
+    <i nz-icon nzType="warning" nzTheme="outline"></i>
+    <span class="navbar-item-title">Issues</span>
+  </div>
+  <div nz-menu-item class="navbar-item" nz-col [nzSpan]="4">
+    <i nz-icon nzType="notification" nzTheme="outline"></i>
+    <span class="navbar-item-title">Report</span>
+  </div>
+  <div nz-menu-item class="navbar-item" nz-col [nzSpan]="4">
+    <i nz-icon nzType="bell" nzTheme="outline"></i>
+    <span class="navbar-item-title">Notifications</span>
+  </div>
+  <div nz-menu-item class="navbar-item" nz-col [nzSpan]="4">
+    <i nz-icon nzType="user" nzTheme="outline"></i>
+    <span class="navbar-item-title">Account</span>
+  </div>
+</div>

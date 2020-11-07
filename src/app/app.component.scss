@@ -1,0 +1,16 @@
+#navbar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar-item {
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .navbar-item-title {
+    display: none;
+  }
+}
