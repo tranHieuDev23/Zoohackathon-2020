@@ -1,6 +1,6 @@
 #map {
   width: 100%;
-  height: 100%;
+  height: 99vh;
 }
 
 #search-box {
@@ -18,4 +18,36 @@
   position: absolute;
   right: 32px;
   bottom: 64px;
+}
+
+#map-attribution {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.8rem;
+}
+
+.mapbox-attribution-container {
+  bottom: 60px;
+  left: 4px;
+  position: absolute;
+  display: block;
+  margin: 0 10 5;
+  background-color: white;
+  border-radius: 2px;
+  padding: 4px;
+}
+
+.mapbox-wordmark {
+  position: absolute;
+  display: block;
+  height: 20px;
+  width: 65px;
+  left: 10px;
+  bottom: 10px;
+  text-indent: -9999px;
+  z-index: 99999;
+  overflow: hidden;
 }

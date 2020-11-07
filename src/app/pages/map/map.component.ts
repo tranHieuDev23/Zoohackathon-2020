@@ -24,7 +24,8 @@ export class MapPageComponent implements OnInit {
       container: 'map',
       style: environment.mapbox.style,
       zoom: environment.mapbox.initialZoomLevel,
-      accessToken: environment.mapbox.accessToken
+      accessToken: environment.mapbox.accessToken,
+      attributionControl: false
     });
     this.moveTo(currentLocation);
   }
