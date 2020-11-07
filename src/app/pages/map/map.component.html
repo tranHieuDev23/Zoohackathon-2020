@@ -1,8 +1,15 @@
 <mgl-map [style]="style" [zoom]="zoom" [center]="center" [movingOptions]="{animate: false}" [attributionControl]="false"
     logoPosition="top-left">
-    <mgl-marker *ngFor="let item of issues" [lngLat]="item.location.coord">
-        <app-issue-marker [issue]="item"></app-issue-marker>
+    <mgl-marker *ngFor="let item of issues; index as i" anchor="center" [lngLat]="item.location.coord">
+        <app-issue-marker [issue]="item" (mouseenter)="hoverMarkerIn(i)" (mouseleave)="hoverMarkerOut(i)">
+        </app-issue-marker>
     </mgl-marker>
+    <mgl-popup *ngFor="let item of issuesWithPopup" [lngLat]="item.location.coord" [offset]="24">
+        <span nz-typography><strong>{{ item.title }}</strong></span><br />
+        <nz-tag [nzColor]="getIssueStatusColor(item.status)">
+            {{ getIssueStatusString(item.status) }}
+        </nz-tag>
+    </mgl-popup>
 </mgl-map>
 <nz-input-group id="search-box" nzSize="large" nzSearch [nzAddOnAfter]="suffixIconButton">
     <input type="text" nz-input placeholder="Search location" (keydown.enter)="search()" [(ngModel)]="searchQuery" />

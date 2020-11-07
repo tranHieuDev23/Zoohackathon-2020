@@ -3,7 +3,7 @@
   border: 10px solid white;
   width: 30px;
   height: 30px;
-  transform: rotate(-45deg);
+  transform: translateX(-15px) translateY(-30px) rotate(-45deg);
 }
 
 .marker::after {

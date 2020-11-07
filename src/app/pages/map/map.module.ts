@@ -8,6 +8,8 @@ import { FormsModule } from '@angular/forms';
 import { NgxMapboxGLModule } from 'ngx-mapbox-gl';
 import { environment } from 'src/environments/environment';
 import { IssueMarkerModule } from 'src/app/components/issue-marker/issue-marker.module';
+import { NzTagModule } from 'ng-zorro-antd/tag';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 @NgModule({
   declarations: [MapPageComponent],
@@ -16,6 +18,8 @@ import { IssueMarkerModule } from 'src/app/components/issue-marker/issue-marker.
     NzInputModule,
     NzIconModule,
     NzButtonModule,
+    NzTagModule,
+    NzTypographyModule,
     FormsModule,
     IssueMarkerModule,
     NgxMapboxGLModule.withConfig({
