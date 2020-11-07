@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NzUploadFile } from 'ng-zorro-antd/upload';
+import { NzUploadChangeParam, NzUploadFile } from 'ng-zorro-antd/upload';
 import { MapPickerValue } from 'src/app/components/map-picker/map-picker.component';
 
 @Component({
@@ -20,7 +20,7 @@ export class ReportPageComponent implements OnInit {
       category: [null, [Validators.required]],
       location: [null, [Validators.required]],
       description: [null, [Validators.required]],
-      images: [[], [Validators.required]]
+      images: [[], [Validators.minLength(1)]]
     });
     this.formGroup.valueChanges.subscribe((values) => {
       this.onChanges(values);
@@ -34,10 +34,24 @@ export class ReportPageComponent implements OnInit {
     this.locationString = this.getLocationString(values.location);
   }
 
+  onFilesChange(filesChange: NzUploadChangeParam): void {
+    if (filesChange.file.status !== 'done') {
+      return;
+    }
+    this.formGroup.patchValue({
+      images: this.uploadedFiles.map((item) => {
+        return item.originFileObj
+      })
+    });
+  }
+
   onSubmit(): void {
   }
 
   private getLocationString(value: MapPickerValue): string {
+    if (!value) {
+      return null;
+    }
     if (value.feature && value.feature.properties.name) {
       return value.feature.properties.name;
     }
