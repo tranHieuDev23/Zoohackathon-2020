@@ -19,6 +19,7 @@ import { InterceptorService } from './services/interceptor.service';
 import { IssuePageModule } from './pages/issue/issue.module';
 import { AllIssuePageModule } from './pages/all-issue/all-issue.module';
 import { NotificationsPageModule } from './pages/notifications/notifications.module';
+import { AccountPageModule } from './pages/account/account.module';
 
 registerLocaleData(en);
 
@@ -39,7 +40,8 @@ registerLocaleData(en);
     ReportPageModule,
     IssuePageModule,
     AllIssuePageModule,
-    NotificationsPageModule
+    NotificationsPageModule,
+    AccountPageModule
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US },

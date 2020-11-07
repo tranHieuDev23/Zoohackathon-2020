@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 nz-typography>Account</h1>
+    <p nz-typography>Actually there isn't anything here. This app is just meant to be a prototype of what can be
+        achieved in a real-world project.</p>
+    <p>
+        <img src="https://challengepost-s3-challengepost.netdna-ssl.com/photos/production/challenge_photos/001/205/513/datas/full_width.png"
+            style="max-width: 500px; margin-left: auto; margin-right: auto; display: block;">
+    </p>
+    <p nz-typography>A project of team !KSTN. Our members include:</p>
+    <div nz-row nzJustify="center" nzGutter="8">
+        <div *ngFor="let item of members" nz-col [nzSpan]="12" [nzMd]="8" [nzLg]="6" [nzXxl]="4">
+            <nz-card nzHoverable style="width: 100%; margin-bottom: 8px;" [nzCover]="coverTemplate">
+                <nz-card-meta [nzTitle]="item.name" [nzDescription]="item.email"></nz-card-meta>
+            </nz-card>
+            <ng-template #coverTemplate>
+                <img [src]="item.image" />
+            </ng-template>
+        </div>
+    </div>
+</div>
