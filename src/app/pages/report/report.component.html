@@ -17,7 +17,6 @@
             <nz-form-label nz-col [nzSpan]="4" nzRequired>Location</nz-form-label>
             <nz-form-control nz-col [nzSpan]="16" nzHasFeedback nzValidatingTip="Validating..." [nzErrorTip]="errorTpl">
                 <app-map-picker formControlName="location"></app-map-picker>
-                <span *ngIf="locationString" nz-typography>{{ locationString }}</span>
             </nz-form-control>
         </nz-form-item>
 

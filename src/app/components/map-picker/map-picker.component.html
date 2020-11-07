@@ -1,2 +1,4 @@
 <mgl-map [style]="style" [zoom]="zoom" [center]="center" [movingOptions]="{animate: false}">
+    <mgl-marker *ngIf="value" [lngLat]="value.coord"></mgl-marker>
 </mgl-map>
+<span *ngIf="locationString" nz-typography>{{ locationString }}</span>

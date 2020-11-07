@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NzUploadFile } from 'ng-zorro-antd/upload';
-import { MapPickerValue } from 'src/app/components/map-picker/map-picker.component';
 import { ReportService } from 'src/app/services/report.service';
 import { Report } from 'src/models/report';
 import { getAllReportType, getReportTypeName } from 'src/models/report-type';
@@ -34,16 +33,9 @@ export class ReportPageComponent implements OnInit {
       description: [null, [Validators.required]],
       images: [[], [Validators.minLength(1)]]
     });
-    this.formGroup.valueChanges.subscribe((values) => {
-      this.onChanges(values);
-    });
   }
 
   ngOnInit(): void {
-  }
-
-  onChanges(values: any): void {
-    this.locationString = this.getLocationString(values.location);
   }
 
   onFilesChange(): void {
@@ -64,15 +56,5 @@ export class ReportPageComponent implements OnInit {
       await this.reportService.uploadReport(this.formGroup.getRawValue() as Report);
       this.router.navigateByUrl('/');
     }
-  }
-
-  private getLocationString(value: MapPickerValue): string {
-    if (!value) {
-      return null;
-    }
-    if (value.feature && value.feature.properties.name) {
-      return value.feature.properties.name;
-    }
-    return `${value.coord.lat},${value.coord.lng}`;
   }
 }
