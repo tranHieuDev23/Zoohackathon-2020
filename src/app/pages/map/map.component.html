@@ -1,0 +1,13 @@
+<div id="map"></div>
+<nz-input-group id="search-box" nzSize="large" nzSearch [nzAddOnAfter]="suffixIconButton">
+    <input type="text" nz-input placeholder="Search location" (keydown.enter)="search()" [(ngModel)]="searchQuery" />
+</nz-input-group>
+<ng-template #suffixIconButton>
+    <button nz-button nzSize="large" nzType="primary" nzSearch (click)="search()">
+        <i nz-icon nzType="search"></i>
+    </button>
+</ng-template>
+<button nz-button id="current-location-button" (click)="toCurrentLocation()" nzSize="large" nzShape="circle"
+    nzType="primary">
+    <i nz-icon nzType="aim" nzTheme="outline"></i>
+</button>

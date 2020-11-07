@@ -13,6 +13,7 @@ import en from '@angular/common/locales/en';
 import { NzMenuModule } from 'ng-zorro-antd/menu'
 import { NzGridModule } from 'ng-zorro-antd/grid'
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { MapPageModule } from './pages/map/map.module';
 
 registerLocaleData(en);
 
@@ -28,7 +29,8 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     NzMenuModule,
     NzGridModule,
-    NzIconModule
+    NzIconModule,
+    MapPageModule
   ],
   providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
